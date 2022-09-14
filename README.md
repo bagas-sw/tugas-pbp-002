@@ -1,62 +1,21 @@
-# Template Proyek Django PBP
+# Tugas 2: Pengenalan Aplikasi Django dan Models View Template (MVT) pada Django
 
-Pemrograman Berbasis Platform (CSGE602022) - diselenggarakan oleh Fakultas Ilmu Komputer Universitas Indonesia, Semester Ganjil 2022/2023
+Link aplikasi Heroku : [https://bagas-tugas-002.herokuapp.com/katalog/](https://bagas-tugas-002.herokuapp.com/katalog/)
 
-*Read this in other languages: [Indonesian](README.md), [English](README.en.md)*
+## Struktur MTV pada Django
 
-## Pendahuluan
+![Bagan _request_ client ke web aplikasi berbasis Django](https://1.bp.blogspot.com/-u-n0WYPhc3o/X9nFtvNZB-I/AAAAAAAADrE/kD5gMaz4kNQIZyaUcaJJFVpDxdKrfoOwgCLcBGAsYHQ/s602/3.%2BPython%2BDjango%2B-%2BModul%2B2_Page2_Image5.jpg)
 
-Repositori ini merupakan sebuah template yang dirancang untuk membantu mahasiswa yang sedang mengambil mata kuliah Pemrograman Berbasis Platform (CSGE602022) mengetahui struktur sebuah proyek aplikasi Django serta file dan konfigurasi yang penting dalam berjalannya aplikasi. Kamu dapat dengan bebas menyalin isi dari repositori ini atau memanfaatkan repositori ini sebagai pembelajaran sekaligus awalan dalam membuat sebuah proyek Django.
+Django adalah salah satu web framework yang berbasis MTV. MTV merupakan kependekan dari Model, Template, dan View. Nantinya, Model akan terhubung ke database, Template akan terhubung ke _web browser_ dan View yang akan menghubungkan Model dan Template.
 
-## Cara Menggunakan
+* Model pada 'models.py' merupakan bagian yang berfungsi untuk melakukan interaksi dengan basis data. Interaksi model dan database berlangsung dua arah, selain mengambil data, model juga akan melakukan _updating_ dan _inserting_ data.
+* Template adalah bagian representatif dari web. Bagian ini merupakan representasi tentang bagaimana _web_ akan ditampilkan. Template akan berisi HTML, CSS, dan JavaScript. Django mengakses file template melalui 'views.py' dengan menggunakan JINJA templating.
+* View akan berjalan sesuai dengan file python lainnya yaitu 'urls.py'. URL routing berguna untuk menunjukan view yang akan digunakan berdasarkan routing. View juga akan berhubungan dengan Models, yang mana Models juga terhubung dengan database. File model ini memberi kemudahan dalam pengaksesan database, karena kita tidak perlu menggunakan syntax-syntax SQL dan manajemen database.
 
-Apabila kamu ingin menggunakan repositori ini sebagai repositori awalan yang nantinya akan kamu modifikasi:
+## Penggunaan _virtual environment_ dalam project Django
 
-1. Buka laman GitHub repositori templat kode, lalu klik tombol "**Use this template**"
-   untuk membuat salinan repositori ke dalam akun GitHub milikmu.
-2. Buka laman GitHub repositori yang dibuat dari templat, lalu gunakan perintah
-   `git clone` untuk menyalin repositorinya ke suatu lokasi di dalam sistem
-   berkas (_filesystem_) komputermu:
+_Virtual environment_ adalah sebuah tools untuk membuat suatu _environment_ pada python lokal yang berbeda dengan _environment_ python pada sistem . Program python yang berjalan dalam 'virtualenv' akan memiliki modul-modulnya sendiri dan tidak bisa diakses oleh program luar. Sedangkan, jika program python berjalan tanpa 'virtualenv' hanya bisa menggunakan modul-modul global saja, yaitu modul yang terinstall di sistem, dan semua aplikasi bisa mengakses dan menggunakannya.
 
-   ```shell
-   git clone <URL ke repositori di GitHub> <path ke suatu lokasi di filesystem>
-   ```
-3. Masuk ke dalam repositori yang sudah di-_clone_ dan jalankan perintah berikut
-   untuk menyalakan _virtual environment_:
+Dalam penggunaanya, disarankan untuk memakai _virtual environment_ ini setiap kali mempunyai project baru. Hal ini bertujuan untuk memastikan versi sebuah _library_ yang dipakai di suatu project tidak akan berubah apabila kita melakukan update pada _library_ yang sama di project lainnya.
 
-   ```shell
-   python -m venv env
-   ```
-4. Nyalakan environment dengan perintah berikut:
-
-   ```shell
-   # Windows
-   .\env\Scripts\activate
-   # Linux/Unix, e.g. Ubuntu, MacOS
-   source env/bin/activate
-   ```
-5. Install dependencies yang dibutuhkan untuk menjalankan aplikasi dengan perintah berikut:
-
-   ```shell
-   pip install -r requirements.txt
-   ```
-
-6. Jalankan aplikasi Django menggunakan server pengembangan yang berjalan secara
-   lokal:
-
-   ```shell
-   python manage.py runserver
-   ```
-7. Bukalah `http://localhost:8000` pada browser favoritmu untuk melihat apakah aplikasi sudah berjalan dengan benar.
-
-## Contoh Deployment 
-
-Pada template ini, deployment dilakukan dengan memanfaatkan GitHub Actions sebagai _runner_ dan Heroku sebagai platform Hosting aplikasi. 
-
-Untuk melakukan deployment, kamu dapat melihat instruksi yang ada pada [Tutorial 0](https://pbp-fasilkom-ui.github.io/ganjil-2023/assignments/tutorial/tutorial-0).
-
-Untuk contoh aplikasi Django yang sudah di deploy, dapat kamu akses di [https://django-pbp-template.herokuapp.com/](https://django-pbp-template.herokuapp.com/)
-
-## Credits
-
-Template ini dibuat berdasarkan [PBP Ganjil 2021](https://gitlab.com/PBP-2021/pbp-lab) yang ditulis oleh Tim Pengajar Pemrograman Berbasis Platform 2021 ([@prakashdivyy](https://gitlab.com/prakashdivyy)) dan [django-template-heroku](https://github.com/laymonage/django-template-heroku) yang ditulis oleh [@laymonage, et al.](https://github.com/laymonage). Template ini dirancang sedemikian rupa sehingga mahasiswa dapat menjadikan template ini sebagai awalan serta acuan dalam mengerjakan tugas maupun dalam berkarya.
+Aplikasi web tetap dapat dibuat walau tanpa menggunakan _virtual environment_. Akan tetapi, penggunaan _virtual environment_ sangat direkomendasikan, karena mempunyai banyak keuntungan, diantaranya versi _library_ tetap konsisten walaupun bekerja di perangkat yang berbeda dan jika kita bekerja di banyak project versi _library_ nya dapat menyesuaikan kebutuhan masing-masing project.
