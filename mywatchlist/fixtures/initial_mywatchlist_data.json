@@ -1,0 +1,112 @@
+[
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 1,
+        "fields": {
+            "watched" : "Sudah",
+            "title" : "2001: A Space Odyssey",
+            "rating" : 4.2,
+            "release_date" : "1968-08-04",
+            "review" : "Stanley Kubrick's 2001: A Space Odyssey is the picture which science-fiction enthusiasts of every age and in every corner of the world have prayed (sometimes forlornly) that the industry might one day give them."
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 2,
+        "fields": {
+            "watched" : "Sudah",
+            "title" : "The Terminator",
+            "rating" : 4.0,
+            "release_date" : "1984-10-26",
+            "review" : "Though the production design is a bit flimsy at times, both the big ideas at work and director James Cameron's brilliance as a proactive, inventive filmmaker generate a powerful flow that cannot help but sweep viewers totally away."
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 3,
+        "fields": {
+            "watched" : "Sudah",
+            "title" : "Interstellar",
+            "rating" : 4.3,
+            "release_date" : "2014-11-06",
+            "review" : "This is not only a tremendously exciting space adventure... It's also a rich and thoughtful meditation on time and space and gravity."
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 4,
+        "fields": {
+            "watched" : "Belum",
+            "title" : "Space Sweepers",
+            "rating" : 3.9,
+            "release_date" : "2021-02-05",
+            "review" : "The physics-defying spaceship chases and battles are explosive eye-candy, but it's the well-written characters that are always to the fore."
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 5,
+        "fields": {
+            "watched" : "Sudah",
+            "title" : "Inception",
+            "rating" : 4.5,
+            "release_date" : "2010-12-07",
+            "review" : "A spectacular fantasy thriller based on Nolan's own original screenplay, Inception is the smartest CGI head-trip since The Matrix."
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 6,
+        "fields": {
+            "watched" : "Belum",
+            "title" : "Blade Runner",
+            "rating" : 4.5,
+            "release_date" : "1982-06-25",
+            "review" : "A sci-fi masterpiece indeed. Blade Runner works on every level. Dark, intelligent, visually breathtaking as well as having great performances. Blade Runner is a sci-fi masterpiece that I would implore you to watch if you haven't!"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 7,
+        "fields": {
+            "watched" : "Sudah",
+            "title" : "Interstellar",
+            "rating" : 4.3,
+            "release_date" : "2014-11-06",
+            "review" : "Though the production design is a bit flimsy at times, both the big ideas at work and director James Cameron's brilliance as a proactive, inventive filmmaker generate a powerful flow that cannot help but sweep viewers totally away."
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 8,
+        "fields": {
+            "watched" : "Sudah",
+            "title" : "Everything Everywhere All At Once",
+            "rating" : 4.5,
+            "release_date" : "2022-04-08",
+            "review" : "Everything Everywhere All at Once is an exhilarating ride and an ample showcase of rising and unrealised talent that embodies the beauty of the human spirit through the prism of the preternatural. It is one of the best films of 2022."
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 9,
+        "fields": {
+            "watched" : "Belum",
+            "title" : "Annihilation",
+            "rating" : 4.0,
+            "release_date" : "2018-02-23",
+            "review" : "It's an exploration of the weight of our own mistakes. How the choices we make, and the things we can't change, fundamentally change us." 
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 10,
+        "fields": {
+            "watched" : "Sudah",
+            "title" : "Rogue One : A Star Wars Story",
+            "rating" : 4.3,
+            "release_date" : "2016-12-16",
+            "review" : "Rogue One looks amazing, the effects are stunning, the action is energetic, the nostalgia is delightful, there's the right amount of humor, and it tells a good story."
+        }
+    }
+]
