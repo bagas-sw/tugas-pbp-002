@@ -1,13 +1,13 @@
 # Tugas 3: Pengimplementasian Data Delivery Menggunakan Django
 
-Link HTML : [https://bagas-tugas-django.herokuapp.com/mywatchlist/html/](https://bagas-tugas-django.herokuapp.com/mywatchlist/html/)
-Link JSON : [https://bagas-tugas-django.herokuapp.com/mywatchlist/json/](https://bagas-tugas-django.herokuapp.com/mywatchlist/json/)
-Link XML : [https://bagas-tugas-django.herokuapp.com/mywatchlist/xml/](https://bagas-tugas-django.herokuapp.com/mywatchlist/xml/)
+* Link HTML : [https://bagas-tugas-django.herokuapp.com/mywatchlist/html/](https://bagas-tugas-django.herokuapp.com/mywatchlist/html/)
+* Link JSON : [https://bagas-tugas-django.herokuapp.com/mywatchlist/json/](https://bagas-tugas-django.herokuapp.com/mywatchlist/json/)
+* Link XML : [https://bagas-tugas-django.herokuapp.com/mywatchlist/xml/](https://bagas-tugas-django.herokuapp.com/mywatchlist/xml/)
 
 ## Perbedaan HTML, XML, dan JSON
 * HTML atau _Hypertext Markup Language_ merupakan bahasa yang digunakan dalam menyajikan dokumen untuk ditampilkan oleh browser. Dalam penggunaanya, developer dapat mengkombinasikannya dengan CSS untuk melakukan _styling_, serta JavaScript untuk keperluan _scripting_. Selain it, manipulasi terhadap halaman web dapat dilakukan dengan HTML _Document Object Model_ (DOM) yang sifatnya hierarkis. HTML tidak dapat dipergunakan untuk pertukaran data, tidak seperti JSON dan XML, HTML tidak punya sintaks khusus untuk menyimpan data. Akan tetapi, HTML dapat digunakan untuk menyajikan data dalam bentuk teks, gambar, bahkan video pada halaman website.
-* JSON atau _Javascript Object Notation_ merupakan format atau notasi yang dipergunakan untuk merepresentasikan objek-objek. Awalnya, JSON digunakan untuk merepresentasikan objek dalam JavaScript, sesuai dengan namanya. Sehingga syntax pada JSON sama dengan syntax pembuatan object pada JavaScript. Jika HTML dan XML didasari dengan konsep DOM, maka JSON didasari dengan konsep pasangan _key-value_, contohnya '{"title" : "Interstellar"}'
-* XML atau _eXtensible Markup Language_ merupakan bahasa yang merepresentasikan data dengan penggunaan tag-tag, seperti '<field>'. Secara sekilas penggunaan tag-tag tersebut membuatnya mirip dengan HTML, bahkan pada XML terdapat struktur hierarkis dan konsep DOM yang dipergunakan untuk memanipulasi data. XML dapat digunakan dengan berbagai cara untuk pertukaran data.
+* JSON atau _Javascript Object Notation_ merupakan format atau notasi yang dipergunakan untuk merepresentasikan objek-objek. Awalnya, JSON digunakan untuk merepresentasikan objek dalam JavaScript, sesuai dengan namanya. Sehingga syntax pada JSON sama dengan syntax pembuatan object pada JavaScript. Jika HTML dan XML didasari dengan konsep DOM, maka JSON didasari dengan konsep pasangan _key-value_, contohnya `{"title" : "Interstellar"}`
+* XML atau _eXtensible Markup Language_ merupakan bahasa yang merepresentasikan data dengan penggunaan tag-tag, seperti `<field>`. Secara sekilas penggunaan tag-tag tersebut membuatnya mirip dengan HTML, bahkan pada XML terdapat struktur hierarkis dan konsep DOM yang dipergunakan untuk memanipulasi data. XML dapat digunakan dengan berbagai cara untuk pertukaran data.
 * Perbedaan JSON dan XML :
   - JSON lebih cepat dalam membaca dan menulis
   - XML lebih aman dibandingkan JSON
@@ -24,7 +24,7 @@ Data _delivery_ diperlukan dalam suatu platform karena suatu aplikasi pastinya a
   ```shell
   django-admin startapp mywatchlist
   ```
-2.  Menambahkan path mywatchlist ke dalam file 'settings.py' dan 'urls.py' yang ada di direktori 'project-django'
+2.  Menambahkan path mywatchlist ke dalam file `settings.py` dan `urls.py` yang ada di direktori `project-django`
   
   ```shell
   INSTALLED_APPS = [
@@ -60,9 +60,10 @@ class MyWatchList(models.Model):
   ```shell
   python manage.py migrate
   ```
-7. Jalankan perintah 'python manage.py loaddata initial_mywatchlist_data.json' untuk memasukkan data tersebut ke dalam database Django lokal.
+7. Jalankan perintah `python manage.py loaddata initial_mywatchlist_data.json` untuk memasukkan data tersebut ke dalam database Django lokal.
 
-8. Buka file 'views.py' dan tambahkan fungsi-fungsi untuk menampilkan data pada database, baik dalam bentuk HTML, XML, dan JSON.
+8. Buka file `views.py` dan tambahkan fungsi-fungsi untuk menampilkan data pada database, baik dalam bentuk HTML, XML, dan JSON.
+
   ```shell
 def show_mywatchlist(request):
     return HttpResponse("Tugas 3 PBP")
@@ -104,13 +105,14 @@ def show_html(request):
         'message' : message
     }
     return render(request, "mywatchlist.html", context)
+    
   ```
   
-  9. Menambahkan data ke file 'watchlist.html' pada folder 'templates'.
+  9. Menambahkan data ke file `watchlist.html` pada folder `templates`.
   
-  10. Membuat routing pada file 'urls.py' agar data dalam bentuk JSON, HTML, dan XML dapat diakses melalui URL
+  10. Membuat routing pada file `urls.py` agar data dalam bentuk JSON, HTML, dan XML dapat diakses melalui URL
+  
     ```shell
-  ...
   urlpatterns = [
     path('', show_mywatchlist, name='show_mywatchlist'),
     path('json/', show_json, name='show_json'),
@@ -120,7 +122,7 @@ def show_html(request):
     path('html/', show_html, name='show_html')
 ]
   ```
-11. Membuat unit tests pada 'tests.py', lalu untuk menjalankannya lakukan command 'python manage.py test'
+11. Membuat unit tests pada `tests.py`, lalu untuk menjalankannya lakukan command `python manage.py test`
   
   ```shell
 from django.test import TestCase, Client
@@ -141,14 +143,15 @@ class MyWatchListTest(TestCase):
   ```
 
 12. Melakukan _deployment_ ke Heroku
-  Lakukan 'add' ,'commit', dan 'push' ke repo tugas. Dan, karena pada tugas sebelumnya sudah dimasukkan '(HEROKU_APP_NAME)' serta API key '(HEROKU_API_KEY)' pada bagian secret repository di repo yang sama.
+  Lakukan `add` ,`commit`, dan `push` ke repo tugas. Dan, karena pada tugas sebelumnya sudah dimasukkan `(HEROKU_APP_NAME)` serta API key `(HEROKU_API_KEY)` pada bagian secret repository di repo yang sama.
   Maka deploy akan dilakukan secara otomatis ke aplikasi di Heroku setelah melakukan push ke repo tugas.
 
 ## Screenshot akses URL via Postman.
   ### HTML
-  ![HTML](https://drive.google.com/file/d/15sqHIfdTpAhBYzkwEGVcKPRPN4FJd55M/view?usp=sharing)
-  ### JSON
-  ![JSON](https://drive.google.com/file/d/1ga_kbZhDRBYfe50UYAtKBwJhkpQ7eHCu/view?usp=sharing)
-  ### XML
-  ![XML](https://drive.google.com/file/d/12GKitCq7t-61huV2jS0l8Lqs9X-iBWdQ/view?usp=sharing)
+  <img width="960" alt="html" src="https://user-images.githubusercontent.com/79742726/191659479-272fe715-1bc1-4f01-a1f6-718fe74cc769.png">
   
+  ### JSON
+  <img width="960" alt="JSON" src="https://user-images.githubusercontent.com/79742726/191659526-318d9697-5b31-4b37-b80d-eeeb78895c1e.png">
+  
+  ### XML
+  <img width="960" alt="XML" src="https://user-images.githubusercontent.com/79742726/191659567-9899fcf5-4793-46b7-aa19-1dddecd6cfc9.png">
