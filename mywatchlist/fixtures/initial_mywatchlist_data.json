@@ -3,7 +3,7 @@
         "model": "mywatchlist.mywatchlist",
         "pk": 1,
         "fields": {
-            "watched" : "Sudah",
+            "watched" : true,
             "title" : "2001: A Space Odyssey",
             "rating" : 4.2,
             "release_date" : "1968-08-04",
@@ -14,7 +14,7 @@
         "model": "mywatchlist.mywatchlist",
         "pk": 2,
         "fields": {
-            "watched" : "Sudah",
+            "watched" : true,
             "title" : "The Terminator",
             "rating" : 4.0,
             "release_date" : "1984-10-26",
@@ -25,7 +25,7 @@
         "model": "mywatchlist.mywatchlist",
         "pk": 3,
         "fields": {
-            "watched" : "Sudah",
+            "watched" : true,
             "title" : "Interstellar",
             "rating" : 4.3,
             "release_date" : "2014-11-06",
@@ -36,7 +36,7 @@
         "model": "mywatchlist.mywatchlist",
         "pk": 4,
         "fields": {
-            "watched" : "Belum",
+            "watched" : false,
             "title" : "Space Sweepers",
             "rating" : 3.9,
             "release_date" : "2021-02-05",
@@ -47,7 +47,7 @@
         "model": "mywatchlist.mywatchlist",
         "pk": 5,
         "fields": {
-            "watched" : "Sudah",
+            "watched" : true,
             "title" : "Inception",
             "rating" : 4.5,
             "release_date" : "2010-12-07",
@@ -58,7 +58,7 @@
         "model": "mywatchlist.mywatchlist",
         "pk": 6,
         "fields": {
-            "watched" : "Belum",
+            "watched" : false,
             "title" : "Blade Runner",
             "rating" : 4.5,
             "release_date" : "1982-06-25",
@@ -69,7 +69,7 @@
         "model": "mywatchlist.mywatchlist",
         "pk": 7,
         "fields": {
-            "watched" : "Sudah",
+            "watched" : true,
             "title" : "Interstellar",
             "rating" : 4.3,
             "release_date" : "2014-11-06",
@@ -80,7 +80,7 @@
         "model": "mywatchlist.mywatchlist",
         "pk": 8,
         "fields": {
-            "watched" : "Sudah",
+            "watched" : true,
             "title" : "Everything Everywhere All At Once",
             "rating" : 4.5,
             "release_date" : "2022-04-08",
@@ -91,7 +91,7 @@
         "model": "mywatchlist.mywatchlist",
         "pk": 9,
         "fields": {
-            "watched" : "Belum",
+            "watched" : false,
             "title" : "Annihilation",
             "rating" : 4.0,
             "release_date" : "2018-02-23",
@@ -102,7 +102,7 @@
         "model": "mywatchlist.mywatchlist",
         "pk": 10,
         "fields": {
-            "watched" : "Sudah",
+            "watched" : true,
             "title" : "Rogue One : A Star Wars Story",
             "rating" : 4.3,
             "release_date" : "2016-12-16",

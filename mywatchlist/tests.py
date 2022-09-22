@@ -13,4 +13,3 @@ class MyWatchListTest(TestCase):
     def test_xml_url(self):
         response =  Client().get('/mywatchlist/xml/')
         self.assertEqual(response.status_code,200)
-
