@@ -2,7 +2,7 @@
 
 * Link HTML : [https://bagas-tugas-django.herokuapp.com/mywatchlist/html/](https://bagas-tugas-django.herokuapp.com/mywatchlist/html/)
 * Link JSON : [https://bagas-tugas-django.herokuapp.com/mywatchlist/json/](https://bagas-tugas-django.herokuapp.com/mywatchlist/json/)
-* Link XML : [https://bagas-tugas-django.herokuapp.com/mywatchlist/xml/](https://bagas-tugas-django.herokuapp.com/mywatchlist/xml/)
+* Link XML  : [https://bagas-tugas-django.herokuapp.com/mywatchlist/xml/](https://bagas-tugas-django.herokuapp.com/mywatchlist/xml/)
 
 ## Perbedaan HTML, XML, dan JSON
 * HTML atau _Hypertext Markup Language_ merupakan bahasa yang digunakan dalam menyajikan dokumen untuk ditampilkan oleh browser. Dalam penggunaanya, developer dapat mengkombinasikannya dengan CSS untuk melakukan _styling_, serta JavaScript untuk keperluan _scripting_. Selain it, manipulasi terhadap halaman web dapat dilakukan dengan HTML _Document Object Model_ (DOM) yang sifatnya hierarkis. HTML tidak dapat dipergunakan untuk pertukaran data, tidak seperti JSON dan XML, HTML tidak punya sintaks khusus untuk menyimpan data. Akan tetapi, HTML dapat digunakan untuk menyajikan data dalam bentuk teks, gambar, bahkan video pada halaman website.
@@ -112,8 +112,8 @@ def show_html(request):
   
   10. Membuat routing pada file `urls.py` agar data dalam bentuk JSON, HTML, dan XML dapat diakses melalui URL
   
-    ```shell
-  urlpatterns = [
+ ```shell
+urlpatterns = [
     path('', show_mywatchlist, name='show_mywatchlist'),
     path('json/', show_json, name='show_json'),
     path('json/<int:id>', show_json_by_id, name='show_json_by_id'),
@@ -121,10 +121,11 @@ def show_html(request):
     path('xml/<int:id>', show_xml_by_id, name='show_xml_by_id'),
     path('html/', show_html, name='show_html')
 ]
-  ```
+```
+
 11. Membuat unit tests pada `tests.py`, lalu untuk menjalankannya lakukan command `python manage.py test`
   
-  ```shell
+```shell
 from django.test import TestCase, Client
 from django.urls import resolve
 
@@ -140,11 +141,11 @@ class MyWatchListTest(TestCase):
     def test_xml_url(self):
         response =  Client().get('/mywatchlist/xml/')
         self.assertEqual(response.status_code,200)
-  ```
+
+```
 
 12. Melakukan _deployment_ ke Heroku
-  Lakukan `add` ,`commit`, dan `push` ke repo tugas. Dan, karena pada tugas sebelumnya sudah dimasukkan `(HEROKU_APP_NAME)` serta API key `(HEROKU_API_KEY)` pada bagian secret repository di repo yang sama.
-  Maka deploy akan dilakukan secara otomatis ke aplikasi di Heroku setelah melakukan push ke repo tugas.
+Lakukan `add` ,`commit`, dan `push` ke repo tugas. Dan, karena pada tugas sebelumnya sudah dimasukkan `(HEROKU_APP_NAME)` serta API key `(HEROKU_API_KEY)` pada bagian secret repository di repo yang sama. Maka deploy akan dilakukan secara otomatis ke aplikasi di Heroku setelah melakukan push ke repo tugas.
 
 ## Screenshot akses URL via Postman.
   ### HTML
