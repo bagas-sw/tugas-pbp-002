@@ -5,7 +5,7 @@
 * Link XML  : [https://bagas-tugas-django.herokuapp.com/mywatchlist/xml/](https://bagas-tugas-django.herokuapp.com/mywatchlist/xml/)
 
 ## Perbedaan HTML, XML, dan JSON
-* HTML atau _Hypertext Markup Language_ merupakan bahasa yang digunakan dalam menyajikan dokumen untuk ditampilkan oleh browser. Dalam penggunaanya, developer dapat mengkombinasikannya dengan CSS untuk melakukan _styling_, serta JavaScript untuk keperluan _scripting_. Selain it, manipulasi terhadap halaman web dapat dilakukan dengan HTML _Document Object Model_ (DOM) yang sifatnya hierarkis. HTML tidak dapat dipergunakan untuk pertukaran data, tidak seperti JSON dan XML, HTML tidak punya sintaks khusus untuk menyimpan data. Akan tetapi, HTML dapat digunakan untuk menyajikan data dalam bentuk teks, gambar, bahkan video pada halaman website.
+* HTML atau _Hypertext Markup Language_ merupakan bahasa yang digunakan dalam menyajikan dokumen untuk ditampilkan oleh browser. Dalam penggunaanya, developer dapat mengkombinasikannya dengan CSS untuk melakukan _styling_, serta JavaScript untuk keperluan _scripting_. Selain itu, manipulasi terhadap halaman web dapat dilakukan dengan HTML _Document Object Model_ (DOM) yang sifatnya hierarkis. HTML tidak dapat dipergunakan untuk pertukaran data, tidak seperti JSON dan XML, HTML tidak punya sintaks khusus untuk menyimpan data. Akan tetapi, HTML dapat digunakan untuk menyajikan data dalam bentuk teks, gambar, bahkan video pada halaman website.
 * JSON atau _Javascript Object Notation_ merupakan format atau notasi yang dipergunakan untuk merepresentasikan objek-objek. Awalnya, JSON digunakan untuk merepresentasikan objek dalam JavaScript, sesuai dengan namanya. Sehingga syntax pada JSON sama dengan syntax pembuatan object pada JavaScript. Jika HTML dan XML didasari dengan konsep DOM, maka JSON didasari dengan konsep pasangan _key-value_, contohnya `{"title" : "Interstellar"}`
 * XML atau _eXtensible Markup Language_ merupakan bahasa yang merepresentasikan data dengan penggunaan tag-tag, seperti `<field>`. Secara sekilas penggunaan tag-tag tersebut membuatnya mirip dengan HTML, bahkan pada XML terdapat struktur hierarkis dan konsep DOM yang dipergunakan untuk memanipulasi data. XML dapat digunakan dengan berbagai cara untuk pertukaran data.
 * Perbedaan JSON dan XML :
@@ -50,7 +50,7 @@ class MyWatchList(models.Model):
     review = models.TextField()
   ```
 
-4. Buat folder fixtures dan di dalamnya buat file 'initial_data_mywatchlist_data.json'. Lalu isikan 10 data watchlist yang tiap datanya berisi detail film yang akan atau sudah ditonton.
+4. Buat folder fixtures dan di dalamnya buat file `initial_data_mywatchlist_data.json`. Lalu isikan 10 data watchlist yang tiap datanya berisi detail film yang akan atau sudah ditonton.
 
 5. Jalankan command untuk mempersiapkan migrasi model ke database Django lokal :
   ```shell
