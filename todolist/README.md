@@ -1,9 +1,9 @@
 # Tugas 4: Pengimplementasian Form dan Autentikasi Menggunakan Django
 
-[TODOLIST Page](https://bagas-tugas-django.herokuapp.com/todolist/)
-[Register Page](https://bagas-tugas-django.herokuapp.com/todolist/register/)
-[Login Page](https://bagas-tugas-django.herokuapp.com/todolist/login/)
-[Create New Task Page](https://bagas-tugas-django.herokuapp.com/todolist/create-task/)
+[TODOLIST Page](https://bagas-tugas-django.herokuapp.com/todolist/)</br>
+[Register Page](https://bagas-tugas-django.herokuapp.com/todolist/register/)</br>
+[Login Page](https://bagas-tugas-django.herokuapp.com/todolist/login/)</br>
+[Create New Task Page](https://bagas-tugas-django.herokuapp.com/todolist/create-task/)</br>
 
 ## Kegunaan `{% csrf_token %}` pada elemen `<form>` dan apa yang terjadi apabila tidak ada potongan kode tersebut?
 Kegunaan dari `_csrf_token_` adalah untuk melindungi semua data dari form yang menggunakan method POST dari pembobolan. Apabila tidak menggunakan `csrf_token_` pada `<form>`, eksploitasi dapat dengan mudah dilakukan dengan memanfaatkan _authenticated state_ yang dimiliki korban. Maka dari itu, Django mengimplementasikan csrf_token untuk menghindari CSRF Attack dari penyerang. Dan apabila penyerangan berhasil pada akun admin, hal tersebut dapat membahayakan seluruh aplikasi.
@@ -36,6 +36,8 @@ Hal tersebut dapat dilakukan
 ```shell
  1. username : apel123
     password : pbp2022.
+```
+```shell
  2. username : jeruk123
     password : pbp2022.
 ```
