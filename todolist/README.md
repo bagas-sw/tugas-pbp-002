@@ -1,9 +1,9 @@
 # Tugas 4: Pengimplementasian Form dan Autentikasi Menggunakan Django
 
-[TODOLIST Page](https://bagas-tugas-django.herokuapp.com/todolist/)</br>
-[Register Page](https://bagas-tugas-django.herokuapp.com/todolist/register/)</br>
-[Login Page](https://bagas-tugas-django.herokuapp.com/todolist/login/)</br>
-[Create New Task Page](https://bagas-tugas-django.herokuapp.com/todolist/create-task/)</br>
+* [TODOLIST Page](https://bagas-tugas-django.herokuapp.com/todolist/)</br>
+* [Register Page](https://bagas-tugas-django.herokuapp.com/todolist/register/)</br>
+* [Login Page](https://bagas-tugas-django.herokuapp.com/todolist/login/)</br>
+* [Create New Task Page](https://bagas-tugas-django.herokuapp.com/todolist/create-task/)</br>
 
 ## Kegunaan `{% csrf_token %}` pada elemen `<form>` dan apa yang terjadi apabila tidak ada potongan kode tersebut?
 Kegunaan dari `_csrf_token_` adalah untuk melindungi semua data dari form yang menggunakan method POST dari pembobolan. Apabila tidak menggunakan `csrf_token_` pada `<form>`, eksploitasi dapat dengan mudah dilakukan dengan memanfaatkan _authenticated state_ yang dimiliki korban. Maka dari itu, Django mengimplementasikan csrf_token untuk menghindari CSRF Attack dari penyerang. Dan apabila penyerangan berhasil pada akun admin, hal tersebut dapat membahayakan seluruh aplikasi.
@@ -23,13 +23,57 @@ Hal tersebut dapat dilakukan
 - Pada template HTML, akan dilakukan iterasi pada data tersebut dan ditampilkan dalam bentuk tabel.
 
 ## Jelaskan bagaimana cara mengimplementasikan checklist di atas
+1. Buat aplikasi django dengan perintah `python manage.py startapp todolist` pada terminal
+2. Menambahkan path todolist di file `settings.py` dan file `urls.py` pada project_django
+```shell
+INSTALLED_APPS = [
+    ...
+    'katalog',
+    'mywatchlist',
+    'todolist',
+]
+```
+```shell
+    urlpatterns = [
+        ...
+        path('katalog/', include('katalog.urls')),
+        path('mywatchlist/', include('mywatchlist.urls')),
+        path('todolist/', include('todolist.urls')),
+    ]
+```
 
+3. Membuat class Task pada models.py dengan beberapa field seperti user, date, title, dan description
+```shell
+class Task(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    date = models.DateField(auto_now = True)
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+```
 
+4. Jalankan command untuk mempersiapkan migrasi model ke database Django lokal :
+  ```shell
+  python manage.py makemigrations
+  ```
+5. Jalankan command untuk menerapkan skema model yang telah dibuat ke dalam database Django lokal :
+  ```shell
+  python manage.py migrate
+  ```
+6. Membuat fungsi `show_todolist` pada `views.py` untuk menampilkan todolist sesuai dengan kepemilikan user.
 
+7. Membuat fungsi pada `views.py` untuk login, logout, dan register. Yang semuanya dapat diintegrasikan dengan HTML file pada template. Pada fungsi register buat form registrasi dengan `UserCreationForm()`.
 
+8. Membuat fungsi `create-task` untuk membuat object Task baru dengan mengambil parameter-parameter `title` dan `description` dari inputan user di `create-task.html` dan `user=request.user`, lalu object tersebut di save ke database dengan method `save()`.
 
+9. Berikan restriksi pada fungsi `create-task` dan `show-todolist` dengan menambahkan `@login_required(login_url='/todolist/login/')` di atas fungsi tersebut.
 
+10. Membuat register.html, login.html yang kurang lebih sama dengan tugas lab sebelumnya. Lalu, membuat todolist.html untuk menampilkan detail dari tiap object Task pada tabel dengan cara melakukan iterasi untuk tiap Task-nya.
 
+11. Pada `create-task.html`, buat form untuk pembuatan task secara manual dengan menggunakan method POST
+
+12. Membuat routing pada `todolist/urls.py` sesuai dengan function yang ada di views.py.
+
+13. Melakukan deployment ke Heroku. Lalu, buatlah 2 akun dummy beserta 3 dummy data pada website hasil deployment tersebut
 
 
 ## Akun Dummy
