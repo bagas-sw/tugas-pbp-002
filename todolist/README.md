@@ -132,7 +132,7 @@ Dan masih banyak lagi
 1. Menambahkan bootstrap pada base.html di directory `templates`
 <img width="698" alt="image" src="https://user-images.githubusercontent.com/79742726/194216526-25f2c578-029d-4947-a7e8-6e35382029cb.png">
 
-2. Mengubah desain login, register, dan create-task dari menggunakan table menjadi menggunakan div. Hal ini saya lakukan karena div merupakan HTML tag yang menurut saya lebih fleksibel dan mudah untuk menggunakannya
+2. Mengubah desain login, register, dan create-task dari menggunakan table menjadi menggunakan div. Hal ini saya lakukan karena div merupakan HTML tag yang menurut saya lebih fleksibel dan mudah untuk menggunakannya dan juga memperindah tampilannya.
     <br></br>
     Login
     <br></br>
