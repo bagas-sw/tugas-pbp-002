@@ -130,3 +130,30 @@ Dan masih banyak lagi
 
 ## Implementasi Checklist
 1. Menambahkan bootstrap pada base.html di directory `templates`
+<img width="698" alt="image" src="https://user-images.githubusercontent.com/79742726/194216526-25f2c578-029d-4947-a7e8-6e35382029cb.png">
+
+2. Mengubah desain login, register, dan create-task dari menggunakan table menjadi menggunakan div. Hal ini saya lakukan karena div merupakan HTML tag yang menurut saya lebih fleksibel dan mudah untuk menggunakannya
+    <br>
+    Login
+    <br>
+    <img width="704" alt="image" src="https://user-images.githubusercontent.com/79742726/194216769-a17d1ea6-35e9-423a-a93a-9c9f463be968.png">
+    <br>
+    Register
+    <br>
+    <img width="738" alt="image" src="https://user-images.githubusercontent.com/79742726/194216880-d571a833-a548-4e09-adce-0d6181abaa7e.png">
+    <br>
+    Create-Task
+    <br>
+    <img width="708" alt="image" src="https://user-images.githubusercontent.com/79742726/194216957-c758b44b-a798-4660-9fcf-42f2ecad8ae5.png">
+
+3. Implementasi halaman utama todolist, pada halaman ini saya menambahkan CSS dengan internal style sheet karena terbilang cukup sedikit modifikasi yang saya tambahkan.
+    <br>
+    HTML
+    Saya menggunakan flex pada for loop tersebut dan flex-wrap agar apabila suatu elemen sudah lebih besar pada suatu baris, maka elemen tersebut dapat langsung    pindah ke baris berikutnya.
+    <br>
+    <img width="731" alt="image" src="https://user-images.githubusercontent.com/79742726/194217227-9020c328-2c80-432a-85c7-d20f936045bd.png">
+    <br>
+    CSS
+    Pada CSS saya juga menambahkan :hover dengan efek zoom
+    <br>
+    <img width="738" alt="image" src="https://user-images.githubusercontent.com/79742726/194217318-8745c4b3-d998-462e-a9e9-2350fe712e48.png">
