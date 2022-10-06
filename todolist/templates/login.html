@@ -5,41 +5,60 @@
 {% endblock meta %}
 
 {% block content %}
+<div class="vh-100" style="background-color: #60c7cb;">
+    <div class="container py-5 h-100">
+        <div class="d-flex justify-content-center align-items-center h-100">
+            <div class="col col-xl-10">
+                <div class="card" style="border-radius: 1rem;">
+                    <div class="row g-0">
+                        <div class="col-md-6 col-lg-5 d-none d-md-block py-5">
+                            <img src="https://i.ibb.co/b1tTPqm/todolist.webp"
+                            alt="todolist_login_form" class="img-fluid" style="border-radius: 1rem 0 0 1rem; " />
+                        </div>
 
-<div class = "login">
+                        <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                            <div class="card-body p-4 p-lg-5 text-black">
 
-    <h1 style="text-align: center;">Login</h1>
+                                <form method="POST" action="">
+                                {% csrf_token %}
 
-    <form method="POST" action="">
-        {% csrf_token %}
-        <table style="margin:auto;">
-            <tr>
-                <td>Username: </td>
-                <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
-            </tr>
-                    
-            <tr>
-                <td>Password: </td>
-                <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
-            </tr>
+                                <div class="d-flex align-items-center mb-3 pb-1">
+                                    <label class="h1 fw-bold mb-0">Login</label>
+                                </div>
+            
+                                <div class="form-outline mb-4">
+                                    <input type="username" name = "username" id="formUsername" class="form-control form-control-lg" />
+                                    <label class="form-label" for="formUsername">Username</label>
+                                </div>
+            
+                                <div class="form-outline mb-4">
+                                    <input type="password"  name="password"  id="formPassword" class="form-control form-control-lg" />
+                                    <label class="form-label" for="formPassword">Password</label>
+                                </div>
+            
+                                <div class="pt-1 mb-4">
+                                    <button class="btn btn-dark btn-lg btn-block" type="submit">Login</button>
+                                </div>
+            
+                                <p class="mb-5 pb-2" style="color: #393f81;">Don't have an account? <a href="{% url 'todolist:register' %}"
+                                    style="color: #393f81;">Register here</a></p>
+                                </form>
 
-            <tr>
-                <td></td>
-                <td><input class="btn login_btn" type="submit" value="Login"></td>
-            </tr>
-        </table>
-    </form>
-
-    {% if messages %}
-        <ul>
-            {% for message in messages %}
-                <li style="text-align:center" >{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}     
-
-    <p style="text-align:center">Belum mempunyai akun? <a href="{% url 'todolist:register' %}">Buat Akun</a></p>
-
+                                {% if messages %}
+                                    <ul>
+                                        {% for message in messages %}
+                                            <li class="pb-2" style="color: #393f81;" >{{ message }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}     
+  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endblock content %}

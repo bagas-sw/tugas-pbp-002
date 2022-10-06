@@ -85,3 +85,48 @@ class Task(models.Model):
  2. username : jeruk123
     password : pbp2022.
 ```
+
+# Tugas 5 : Web Design Using HTML, CSS, and CSS Framework
+
+## Apakah perbedaan Inline, Internal, dan External CSS
+
+1. Inline CSS: Metode styling ini memanfaatkan atribut style dari tag HTML di dalam template. Contoh: `<h3 style="color:white;">Ini adalah contoh inline CSS</h3>`
+    Kelebihan: Metode ini efektif digunakan jika hanya sebatas menambahkan styling pada 1 selector.
+    Kekurangan: membuat HTML file terlihat berantakan apabila menambahkan banyak styling dan juga metode ini kurang cocok jika ingin membuat style yang ingin digunakan kembali.
+2. Internal CSS:  Metode styling ini menggunakan tag <style> dan styling ditulis di dalam tag tersebut.
+    Kelebihan: penambahan CSS tidak perlu dilakukan dengan file terpisah, langsung melakukan styling di file HTML yang sama.
+    Kekurangan: meningkatkan loading time pada website karena styling yang ditambahkan langsung pada file HTML dan juga jika style yang ingin dibuat banyak akan memenuhi file template HTML.
+3. External CSS: penerapan metode ini menggunakan tag `<link>` untuk menghubungkan HTML dengan CSS yang terpisah.
+    Kekurangan : Website akan membutuhkan waktu yang lebih lama untuk loading karena styling pada website tersebut diletakkan di dalam file CSS tersendiri.
+    Kelebihan: File HTML akan jadi lebih rapi, dan juga 1 file CSS tersebut dapat dipakai oleh HTML lain, selama di panggil dengan tag `<link>`.
+
+## Penjelasan tag HTML5
+
+* <header>          : membuat header pada website
+* <nav>             : membuat navigasi pada website
+* <h1> sampai <h6>  : membuat heading
+* <p>               : teks yang diapit tag ini akan tampil dengan ukuran normal 
+* <br>	            : memasukan satu baris kosong
+* <a>               : teks yang diapit dengan tag ini akan jadi reference, dengan link ditentukan dengan atribut `href`
+* <input>           : tag ini digunakan untuk menerima masukan pengguna, dengan atribut `type` sebagai jenis masukannya.
+* <button>          : membuat sebuah tombol
+* <form>            : membuat sebuah form HTML untuk menerima input pengguna
+* <table>           : tag ini akan membuat table
+* <div>             : tag ini berguna untuk membungkus dan memisahkan elemen dengan elemen lainnya
+
+Dan masih banyak lagi
+
+## Tipe-tipe CSS Selector
+
+1. Universal Selector : Memilih semua elemen html. Syntax: *
+
+2. Type Selector : Memilih semua elemen dengan tipe yang sesuai. Contoh: type selector `p` akan memilih semua elemen <p>
+
+3. Class Selector : Memilih semua elemen yang punya attribut class yang sesuai. Contoh: `.btn` akan memilih semua elemen yang punya class `btn`
+
+4. ID Selector : Memilih sebuah elemen berdasarkan nilai attribut idnya. Misalnya: `#header` akan memilih elemen yang punya id "header".
+
+5. Attribut selector : Memilih semua elemen yang punya attribut yang sesuai. Contoh: [href] akan memilih semua elemen yang punya attribut href.
+
+## Implementasi Checklist
+1. Menambahkan bootstrap pada base.html di directory `templates`

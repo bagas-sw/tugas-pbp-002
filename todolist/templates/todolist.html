@@ -1,34 +1,59 @@
 {% extends 'base.html' %}
 
+{% block meta %}
+<title>Todolist Apps</title>
+{% endblock meta %}
+
 {% block content %}
+<style type="text/css">
+  
+body {
+  background: #60c7cb;
+}
 
-<h1 style="text-align:center ;">Tugas 4 PBP</h1>
-<h3 style="text-align:center ;">Hi! Welcome {{username}}</h3>
+.card {
+  background: #222;
+  border: 1px solid #0b090a;
+  color: rgba(250, 250, 250, 0.8);
+  margin-bottom: 2rem;
+}
 
-<h5 style="text-align:center ;">Sesi terakhir login: {{ last_login }}</h5>
-<table style="overflow-x: auto; margin: auto;">
-  <col style="width : 20%;" />
-  <col style="width : 70%;" />
-  <col style="width : 10%;" />
+.btn-warning {
+  color:yellow;
+  background-color: white;
+  border-color: white;
+}
 
-  <tr>
-    <th style="text-align:center">Title</th>
-    <th style="text-align:center">Description</th>
-    <th style="text-align:center">Date Created</th>
-  </tr>
+.zoom:hover {
+  transform: scale(1.05);
+}
+
+</style>
+
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand">Hi, Welcome {{username}}</a>
+  <form class="form-inline">
+    <button class="btn btn-warning my-2 my-sm-0" type="submit"><a href="{% url 'todolist:create-task' %}">Create Task</a></button>
+    <button class="btn btn-danger my-2 my-sm-0" type="submit"><a href="{% url 'todolist:logout' %}">Logout</a></button>
+  </form>
+</nav>
+
+<div class="d-flex flex-wrap justify-content-center align-items-center gap-5 responsive-container py-5">
   {% for task in todolist %}
-  <tr>
-    <td style="text-align:center">{{task.title}}</td>
-    <td style="text-align:center">{{task.description}}</td>
-    <td style="text-align:center">{{task.date}}</td>
-  </tr>
+  <div class="card text-center zoom">
+    <div class="card-header card-bg-rv"> Date Created: {{task.date}} </div>
+    <div class="image-box card-bg-rv">
+      <img src="https://i.ibb.co/b1tTPqm/todolist.webp" height="200">
+      <div class="card responsive-card">
+        <div class="card-body card-bg-rv">
+          <h5 class="card-title">{{task.title}}</h5>
+          <p class="card-text"> {{task.description}} </p>
+          <a href= "delete/{{task.pk}}" class="btn btn-danger">Delete Task</a>
+        </div>
+      </div>
+    </div>
+  </div>
   {% endfor %}
-</table>
-<br></br>
-<br></br>
-
-<button style= "display: block; margin: auto;"><a href="{% url 'todolist:logout' %}">Logout</a></button>
-<br></br>
-<button style= "display: block; margin: auto;"><a href="{% url 'todolist:create-task' %}">Create Task</a></button>  
+</div>
 
 {% endblock content %}
