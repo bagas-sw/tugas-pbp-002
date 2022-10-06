@@ -149,11 +149,11 @@ Dan masih banyak lagi
 3. Implementasi halaman utama todolist, pada halaman ini saya menambahkan CSS dengan internal style sheet karena terbilang cukup sedikit modifikasi yang saya tambahkan.
     <br></br>
     HTML
-    Saya menggunakan flex pada for loop tersebut dan flex-wrap agar apabila suatu elemen sudah lebih besar pada suatu baris, maka elemen tersebut dapat langsung    pindah ke baris berikutnya.
+    : Saya menggunakan flex pada for loop tersebut dan flex-wrap agar apabila suatu elemen sudah lebih besar pada suatu baris, maka elemen tersebut dapat langsung    pindah ke baris berikutnya.
     <br></br>
     <img width="731" alt="image" src="https://user-images.githubusercontent.com/79742726/194217227-9020c328-2c80-432a-85c7-d20f936045bd.png">
     <br></br>
     CSS
-    Pada CSS saya juga menambahkan :hover dengan efek zoom
+    : Pada CSS saya juga menambahkan :hover dengan efek zoom dan efek pada card.
     <br></br>
     <img width="738" alt="image" src="https://user-images.githubusercontent.com/79742726/194217318-8745c4b3-d998-462e-a9e9-2350fe712e48.png">
