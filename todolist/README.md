@@ -101,7 +101,7 @@ class Task(models.Model):
     Kelebihan: File HTML akan jadi lebih rapi, dan juga 1 file CSS tersebut dapat dipakai oleh HTML lain, selama di panggil dengan tag `<link>`.
 
 ## Penjelasan tag HTML5
-
+```shell
 * <header>          : membuat header pada website
 * <nav>             : membuat navigasi pada website
 * <h1> sampai <h6>  : membuat heading
@@ -113,7 +113,7 @@ class Task(models.Model):
 * <form>            : membuat sebuah form HTML untuk menerima input pengguna
 * <table>           : tag ini akan membuat table
 * <div>             : tag ini berguna untuk membungkus dan memisahkan elemen dengan elemen lainnya
-
+```
 Dan masih banyak lagi
 
 ## Tipe-tipe CSS Selector
