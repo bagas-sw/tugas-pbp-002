@@ -7,31 +7,31 @@
 {% block content %}
 <style type="text/css">
   
-body {
-  background: #60c7cb;
-}
-
-.card {
-  background: #222;
-  border: 1px solid #0b090a;
-  color: rgba(250, 250, 250, 0.8);
-  margin-bottom: 2rem;
-}
-
-.btn-warning {
-  color:yellow;
-  background-color: white;
-  border-color: white;
-}
-
-.zoom:hover {
-  transform: scale(1.05);
-}
+  body {
+    background: #60c7cb;
+    padding: auto;
+  }
+  
+  .card {
+    background: #222;
+    border: 1px solid #0b090a;
+    color: rgba(250, 250, 250, 0.8);
+    margin-bottom: 2rem;
+  }
+  
+  .btn-warning {
+    color:yellow;
+    background-color: white;
+    border-color: white;
+  }
+  
+  .zoom:hover {
+    transform: scale(1.05);
+  }
 
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
 <script>
 $(document).ready(function(){
   $.getJSON("{% url 'todolist:show_json' %}", function(data) {
@@ -53,6 +53,37 @@ $(document).ready(function(){
       )
     })
   })
+
+  $("#createTaskForm").on("submit", function(e){
+    e.preventDefault();
+    var date = new Date();
+    var current_date = date.getFullYear() + "-" + (date.getMonth()+1) + "-" +date.getDate();
+    var title = $("#title").val();
+    var description= $("#description").val();
+   
+    $.ajax({
+      method: "POST",
+      url: "/todolist/add/",  
+      data: {"title":title, "description":description},
+    }).done(function(resp) {
+      console.log(resp)
+      $("#todolistCard").append(`
+        <div class="card text-center zoom">
+          <div class="card-header card-bg-rv"> Date Created: ${current_date} </div>
+          <div class="image-box card-bg-rv">
+            <img src="https://i.ibb.co/b1tTPqm/todolist.webp" height="200"></img>
+            <div class="card responsive-card">
+            <div class="card-body card-bg-rv">
+              <h5 class="card-title"> ${resp.title} </h5>
+              <p class="card-text"> ${resp.description} </p>
+            </div>
+          </div>
+          </div>
+        </div>`
+      )
+      $("#createTaskModal").modal("toggle")
+    })
+  })
 })
 </script>
 
@@ -64,34 +95,39 @@ $(document).ready(function(){
   </form>
 </nav>
 
-<div class="d-flex flex-wrap justify-content-center align-items-center" style="position:relative">
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
+<div class="d-flex flex-wrap justify-content-center align-items-center py-5">
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createTaskModal" >Create Task</button>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+  <div class="modal fade" id="createTaskModal" tabindex="-1" aria-labelledby="createTaskModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="createTaskModalLabel">Create Task</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form method="POST" action="/todolist/add/" id="createTaskForm">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for="title" class="col-form-label">Title</label>
+              <input type="text" class="form-control" id="title" required>
+            </div>
+            <div class="mb-3">
+              <label for="description" class="col-form-label">Description</label>
+              <textarea class="text" id="description" cols="50" rows="10" required></textarea>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" id="tambahTask">Submit</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
 </div>
-</div>  
 
-</div>
-  <div class="d-flex flex-wrap justify-content-center align-items-center gap-5 responsive-container py-5" id = "todolistCard">
+<div class="d-flex flex-wrap justify-content-center align-items-center gap-5 responsive-container py-5" id = "todolistCard">
 </div>
 
 {% endblock content %}

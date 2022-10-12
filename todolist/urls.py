@@ -1,5 +1,5 @@
 from django.urls import path
-from todolist.views import show_todolist, register_user, login_user, logout_user, create_task, delete_task, show_json
+from todolist.views import show_todolist, register_user, login_user, logout_user, create_task, delete_task, show_json, ajax_create_task
 
 app_name = 'todolist'
 
@@ -11,4 +11,5 @@ urlpatterns = [
     path('create-task/', create_task, name='create-task'),
     path('delete/<int:id>', delete_task, name="delete_task"),
     path('json/', show_json, name='show_json'),
+    path('add/', ajax_create_task, name='ajax_create_task'),
 ]

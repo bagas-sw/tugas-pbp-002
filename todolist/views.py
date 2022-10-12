@@ -4,9 +4,10 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.core import serializers
 from django.urls import reverse
+from django.views.decorators.csrf import csrf_exempt
 import datetime
 
 from todolist.models import Task
@@ -38,6 +39,19 @@ def create_task(request):
         return redirect("todolist:show_todolist")
     
     return render(request, "create-task.html", context)
+
+@csrf_exempt
+@login_required(login_url='/todolist/login/')
+def ajax_create_task(request):
+    if request.method == "POST":
+        title = request.POST.get("title")
+        description = request.POST.get("description")
+        Task.objects.create(user = request.user, title = title, description = description)
+
+        return JsonResponse({
+            "title" : title,
+            "description" : description
+        }, status=200)
 
 def register_user(request):
     form = UserCreationForm()
