@@ -4,7 +4,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect
+from django.core import serializers
 from django.urls import reverse
 import datetime
 
@@ -20,6 +21,11 @@ def show_todolist(request):
         'last_login': request.COOKIES['last_login'],
     }
     return render(request, "todolist.html", context)
+
+@login_required(login_url='/todolist/login/')
+def show_json(request):
+    todolist = Task.objects.filter(user=request.user)
+    return HttpResponse(serializers.serialize("json", todolist), content_type="application/json")
 
 @login_required(login_url='/todolist/login/')
 def create_task(request):

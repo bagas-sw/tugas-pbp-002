@@ -30,6 +30,32 @@ body {
 
 </style>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+  $.getJSON("{% url 'todolist:show_json' %}", function(data) {
+    $.each(data, function(index, value) {
+      console.log(value)
+      $("#todolistCard").append(`
+        <div class="card text-center zoom">
+          <div class="card-header card-bg-rv"> Date Created: ${value.fields.date} </div>
+          <div class="image-box card-bg-rv">
+            <img src="https://i.ibb.co/b1tTPqm/todolist.webp" height="200"></img>
+            <div class="card responsive-card">
+            <div class="card-body card-bg-rv">
+              <h5 class="card-title"> ${value.fields.title} </h5>
+              <p class="card-text"> ${value.fields.description} </p>
+            </div>
+          </div>
+          </div>
+        </div>`
+      )
+    })
+  })
+})
+</script>
+
 <nav class="navbar navbar-dark bg-dark">
   <a class="navbar-brand">Hi, Welcome {{username}}</a>
   <form class="form-inline">
@@ -38,22 +64,34 @@ body {
   </form>
 </nav>
 
-<div class="d-flex flex-wrap justify-content-center align-items-center gap-5 responsive-container py-5">
-  {% for task in todolist %}
-  <div class="card text-center zoom">
-    <div class="card-header card-bg-rv"> Date Created: {{task.date}} </div>
-    <div class="image-box card-bg-rv">
-      <img src="https://i.ibb.co/b1tTPqm/todolist.webp" height="200">
-      <div class="card responsive-card">
-        <div class="card-body card-bg-rv">
-          <h5 class="card-title">{{task.title}}</h5>
-          <p class="card-text"> {{task.description}} </p>
-          <a href= "delete/{{task.pk}}" class="btn btn-danger">Delete Task</a>
-        </div>
+<div class="d-flex flex-wrap justify-content-center align-items-center" style="position:relative">
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
-  {% endfor %}
+</div>
+</div>  
+
+</div>
+  <div class="d-flex flex-wrap justify-content-center align-items-center gap-5 responsive-container py-5" id = "todolistCard">
 </div>
 
 {% endblock content %}
